@@ -41,7 +41,7 @@ parser.add_argument('--seed', type = int, default=1, help="iteras for printing t
 parser.add_argument('--batch_size', type = list, default=[100, 100], help="iteras for printing the loss info")
 parser.add_argument('--shuffle', type = bool, default=True, help="iteras for printing the loss info")
 parser.add_argument('--drop_last', type = bool, default=False, help="iteras for printing the loss info")
-parser.add_argument('--data_dir', type = str, default="/home/trunk/RTrunk0/cuisen/MCOP/mcpo/data", help="iteras for printing the loss info")
+parser.add_argument('--data_dir', type = str, default="data", help="iteras for printing the loss info")
 parser.add_argument('--dataset', type = str, default="adult", help="[adult, eicu_d, eicu_los]")
 parser.add_argument('--load_epoch', type = str, default=0, help="iteras for printing the loss info")
 parser.add_argument('--global_epoch', type = int, default=0, help="iteras for printing the loss info")
