@@ -15,7 +15,6 @@ parser.add_argument('--exp-dir', type = str, default="", help="the dim of the so
 parser.add_argument('--FedAve', type = bool, default=False, help="the dim of the solution")
 parser.add_argument('--target_dir_name', type = str, default="", help="the dim of the solution")
 parser.add_argument('--commandline_file', type = str, default="results/args.json", help="the dim of the solution")
-# parser.add_argument('--n_clients', type = int, default=2, help="the batch size for the predicted model")
 parser.add_argument('--eps_g', type = float, default=0.1, help="max_epoch for unbiased_moe")
 parser.add_argument('--weight_eps', type=float, default=0.5,
                     help="eps weight for specific eps")
@@ -59,8 +58,8 @@ args = parser.parse_args()
 
 
 args.eps = [args.eps_g, args.eps_delta_l, args.eps_delta_g]
-args.train_dir = os.path.join(args.data_dir,args.dataset, "train")
-args.test_dir = os.path.join(args.data_dir,args.dataset, "test")
+args.train_dir = os.path.join(args.data_dir, "train")
+args.test_dir = os.path.join(args.data_dir, "test")
 args.ckpt_dir = os.path.join(args.target_dir_name, args.ckpt_dir)
 args.log_dir = os.path.join(args.target_dir_name, args.log_dir)
 args.board_dir = os.path.join(args.target_dir_name, args.board_dir)
