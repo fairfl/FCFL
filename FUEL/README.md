@@ -1,7 +1,7 @@
 # Fair Uniform Federated Learning
 
 
-## introduction for all files
+## introduction of all files
 * dataset_generate.py: the preprocessing code for processing the Adult dataset following exactly the same data processing procedures described in (https://arxiv.org/abs/1902.00146 and https://openreview.net/forum?id=ByexElSYDr).
 * dataload.py: loading dataset for the model
 * hco_lp.py: the function about searching for a descent direction in stage 1 (constrained min-max optimization)
