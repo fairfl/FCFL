@@ -69,7 +69,10 @@ For example, we select the sensitive attribute as ***race***, fairness budget is
 
 `python main.py --sensitive_attr race --step_size 0.1 --disparity_type Eoppo  --max_epoch_stage1 800 --max_epoch_stage2 220 --eps_g 0.05 --target_dir_name adult_race_Eoppo_0-1 --seed 1 --uniform_eps`  
 
+***results:*** is_train: False, epoch: 1019, loss: [0.5672342777252197, 0.4211762547492981], accuracy: [0.7237569093704224, 0.8137267231941223], auc: [0.6760714285714287, 0.8362089015217425], disparity: [-0.054545462131500244, 0.02255287766456604], pred_disparity: [-0.017567992210388184, 0.034288644790649414]  
+
 if we set the sensitive attribute as ***sex***, fairness budget is 0.05:
 
 `python main.py --sensitive_attr sex --step_size 0.1 --disparity_type Eoppo  --max_epoch_stage1 800 --max_epoch_stage2 220 --eps_g 0.05 --target_dir_name adult_sex_Eoppo_0-1 --seed 1 --uniform_eps`  
 
+***results:*** is_train: False, epoch: 1019, loss: [0.5760114789009094, 0.4152376055717468], accuracy: [0.6961326003074646, 0.8184472322463989], auc: [0.6787857142857142, 0.8374747968830623], disparity: [0.0006434917449951172, -0.04236716032028198], pred_disparity: [0.0183182954788208, -0.04114463925361633]
