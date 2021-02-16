@@ -36,7 +36,7 @@ and the generated results are in ./synthetic/figures/
     * uniform_eps: bool variable (if we adopt uniform fairness budget setting, uniform_eps == True)
     * weight_eps: the ratio for specific client budget ("w" in the main text, specific client budget setting)
 
-### unifrom fairness budget on both clients 
+### uniform fairness budget on both clients 
 *   sensitive atttribute as ***race***,  fairness budget as ***0.05***  
 `python main.py --step_size 0.03 --eps_g 0.05 --sensitive_attr race --max_epoch_stage1 800 --max_epoch_stage2 1500 --seed 1 --target_dir_name race_DP_0-05 --uniform_eps`  
 ***results:*** is_train: False, epoch: 2299, loss: [0.5601576566696167, 0.39812201261520386], accuracy: [0.7292817831039429, 0.8195652365684509], auc: [0.6859285714285713, 0.8504551633040838], disparity: [0.0005307793617248535, 0.04531855136156082], pred_disparity: [0.0260276198387146, 0.04738526791334152]
@@ -46,11 +46,30 @@ and the generated results are in ./synthetic/figures/
 
 ### specific fairness budget on both clients 
   sensitive attribute as ***race***, the original disparity is $\Delta DP = [DP_1， DP_2]$.
-*   w = 0.8  (the fairness budget of both clients are 0.8* $\Delta DP$)
-    ` `
-*   w = 0.5
+  The original disparities of both clients is measured by runnung  
+  `python main.py`  
+  where there is no fairness constraints  
 
-*   w = 0.2 
+*   w = 0.8  (the fairness budget of both clients are 0.8* $\Delta DP$)
+    `python main.py --weight_eps 0.8 --step_size 0.07 --sensitive_attr race --seed 1`  
+    the results is:
+
+*   w = 0.5  (the fairness budget of both clients are 0.5* $\Delta DP$)
+    `python main.py --weight_eps 0.8 --step_size 0.07 --sensitive_attr race --seed 1`  
+    the results is:  
+
+*   w = 0.2  (the fairness budget of both clients are 0.5* $\Delta DP$)
+    `python main.py --weight_eps 0.8 --step_size 0.07 --sensitive_attr race --seed 1`  
+    the results is:
 
 ### Equal opportunity measurement with uniform fairness budget on both clients
 EO is also a popular disparity metric. The experiment results can be easily obtained by assigning "Eoppo" to the parameter "disparity_type".
+
+For example, we select the sensitive attribute as ***race***, fairness budget is 0.05:  
+
+`python main.py --sensitive_attr race --step_size 0.1 --disparity_type Eoppo  --max_epoch_stage1 800 --max_epoch_stage2 220 --eps_g 0.05 --target_dir_name adult_race_Eoppo_0-1 --seed 1 --uniform_eps`  
+
+if we set the sensitive attribute as ***sex***, fairness budget is 0.05:
+
+`python main.py --sensitive_attr sex --step_size 0.1 --disparity_type Eoppo  --max_epoch_stage1 800 --max_epoch_stage2 220 --eps_g 0.05 --target_dir_name adult_sex_Eoppo_0-1 --seed 1 --uniform_eps`  
+
