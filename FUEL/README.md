@@ -1,4 +1,4 @@
-# Fair Uniform Federated Learning
+# Fair and Consistent Federated Learning
 
 
 ## introduction for all files
